@@ -19,9 +19,9 @@ func main() {
 		log.Fatal(err)
 	}
 
-	label1 := model.Predict(gosvm.FromDenseVector([]float64{-1, 1}))
-	fmt.Printf("Predicted label: %f\n", label1)
-
-	label2 := model.Predict(gosvm.FromDenseVector([]float64{1, 1}))
-	fmt.Printf("Predicted label: %f\n", label2)
+  err = model.Save("svm_model")
+  if err != nil {
+    log.Fatal(err)
+  }
+  fmt.Println("Svm model saved!")
 }
